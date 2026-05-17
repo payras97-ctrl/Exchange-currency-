@@ -10,28 +10,6 @@ async function startServer() {
   // Add JSON parsing middleware
   app.use(express.json());
 
-  // API Proxy Route for Frankfurter
-  app.get('/api/frankfurter/*', async (req, res) => {
-    try {
-      // Get the path after /api/frankfurter/
-      const apiPath = req.originalUrl.replace('/api/frankfurter', '');
-      const backendUrl = `https://api.frankfurter.dev/v1${apiPath}`;
-      
-      const response = await axios.get(backendUrl, {
-        timeout: 10000
-      });
-      
-      res.json(response.data);
-    } catch (error: any) {
-      console.error('Frankfurter API Error:', error.message);
-      if (error.response) {
-        res.status(error.response.status).json(error.response.data);
-      } else {
-        res.status(500).json({ message: 'Error communicating with currency API', error: error.message });
-      }
-    }
-  });
-
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '/api/frankfurter',
+  baseURL: 'https://api.frankfurter.dev/v1',
   timeout: 10000,
 });
 
