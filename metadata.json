@@ -1,0 +1,8 @@
+{
+  "name": "Vault Exchange",
+  "description": "Premium-grade currency exchange web application with real-time conversion, live rates, PWA support, and fintech aesthetics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
