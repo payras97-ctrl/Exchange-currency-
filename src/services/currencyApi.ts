@@ -29,7 +29,7 @@ export const currencyApi = {
 
   getLatestRates: async (from = 'USD'): Promise<ExchangeRatesResponse> => {
     try {
-      const response = await api.get<ExchangeRatesResponse>(`/latest?from=${from}`);
+      const response = await api.get<ExchangeRatesResponse>(`/latest?base=${from}`);
       return response.data;
     } catch (error) {
       console.error('Error fetching latest rates:', error);
@@ -48,7 +48,7 @@ export const currencyApi = {
     }
     
     try {
-      const response = await api.get<ExchangeRatesResponse>(`/latest?amount=${amount}&from=${from}&to=${to}`);
+      const response = await api.get<ExchangeRatesResponse>(`/latest?amount=${amount}&base=${from}&symbols=${to}`);
       return response.data;
     } catch (error) {
       console.error('Error converting currency:', error);

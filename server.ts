@@ -15,7 +15,7 @@ async function startServer() {
     try {
       // Get the path after /api/frankfurter/
       const apiPath = req.originalUrl.replace('/api/frankfurter', '');
-      const backendUrl = `https://api.frankfurter.app${apiPath}`;
+      const backendUrl = `https://api.frankfurter.dev/v1${apiPath}`;
       
       const response = await axios.get(backendUrl, {
         timeout: 10000
